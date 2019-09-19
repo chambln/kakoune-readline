@@ -1,8 +1,10 @@
 # Readline-style mappings for Kakoune
 
-This plugin implements about 24 line-editing shortcuts, emulating
-Readline as closely as possible. See the readline(1) man page for
-explanations of what they do.
+This plugin implements about 24 line-editing shortcuts in
+[Kakoune](https://kakoune.org), emulating
+[Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) as
+closely as possible. See the readline(1) man page for explanations of
+what they do.
 
 ## Installation
 
