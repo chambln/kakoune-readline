@@ -16,5 +16,6 @@ Put a copy of or link to `readline.kak` anywhere within in your
   - `forward-word`, `backward-word`, `capitalize-word`, `transpose-char`
     and `tranpose-word` change the search register.
   - `transpose-char` and `transpose-word` traverse line breaks.
-  - `delete-horizontal-space` deletes whitespace after the word.
+  - If the cursor is in the middle of the word,
+    `delete-horizontal-space` deletes whitespace after it.
   - The `<c-u>` mapping overrides Kakoune’s default.
