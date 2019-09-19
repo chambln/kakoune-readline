@@ -1,4 +1,4 @@
-# kakoune-readline
+# `kakoune-readline`
 
 This plugin implements about 24 line-editing shortcuts, emulating
 Readline as closely as possible. See the readline(1) man page for
