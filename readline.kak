@@ -6,7 +6,7 @@ map global insert <a-f> '<left><a-;>/[a-zA-Z0-9]<ret><left><a-;>e<right>' -docst
 map global insert <a-b> '<a-;><a-/>[a-zA-Z0-9]<ret><a-;>b<a-;>;' -docstring backward-word
 map global insert <c-d> <del> -docstring delete-char
 map global insert <c-h> <backspace> -docstring backward-delete-char
-map global insert <a-tab> <tab> -docstring tab-insert
+map global insert <a-tab> '<a-;>: execute-keys <lt>tab<gt><ret>' -docstring tab-insert
 map global insert <c-t> '<left><a-;>d<a-;>p<right><right>' -docstring transpose-chars
 map global insert <a-t> '<a-;><a-w><a-;><a-b><a-;><a-b><a-;>d<a-;><a-e><right><a-;>p<a-;><a-w>' -docstring transpose-words
 map global insert <a-u> '<a-;>e<a-;>~<right>' -docstring upcase-word
