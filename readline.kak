@@ -1,3 +1,4 @@
+# See LICENSE file for copyright and license details.
 map global insert <c-a> <home> -docstring beginning-of-line
 map global insert <c-e> <end> -docstring end-of-line
 map global insert <c-f> <right> -docstring forward-char
