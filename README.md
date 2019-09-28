@@ -8,7 +8,7 @@ what they do.
 
 ## Installation
 
-Put a copy of or link to `readline.kak` anywhere within in your
+Put a copy of or link to `readline.kak` anywhere within your
 `~/.config/kak/autoload/` directory.
 
 ## Bugs and notes
