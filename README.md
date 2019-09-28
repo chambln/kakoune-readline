@@ -19,3 +19,5 @@ Put a copy of or link to `readline.kak` anywhere within your
   - If the cursor is in the middle of the word,
     `delete-horizontal-space` deletes whitespace after it.
   - The `<c-u>` mapping overrides Kakoune’s default.
+  - I chose not to include mappings for `<c-p>` and `<c-n>` since they
+    are used for completion by default.
