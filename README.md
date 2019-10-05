@@ -13,6 +13,9 @@ Put a copy of or link to `readline.kak` anywhere within your
 
 ## Bugs and notes
 
+  - `<c-w>` and `<c-a-h>` kill two words backward if the cursor is
+    exactly one character into the latter, e.g. `one two t|hree four`
+    becomes `one |hree four` where `|` represents the cursor.
   - `transpose-char` and `transpose-word` change the search register.
   - `transpose-char` and `transpose-word` traverse line breaks.
   - If the cursor is in the middle of the word,
