@@ -24,8 +24,8 @@ Put a copy of or link to `readline.kak` anywhere within your
 
 I chose not to include mappings for `<c-p>` and `<c-n>` since they are
 used for completion by default. If you want to use tab for completion
-instead, you can use the mappings below. Use `<a-tab>` to insert a
-literal tab character.
+instead, you can use the mappings below. This plugin provides `<a-tab>`
+to insert a literal tab character, as in Readline.
 
     map global insert <tab> <c-n>
     map global insert <s-tab> <c-p>
