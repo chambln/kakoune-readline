@@ -10,9 +10,9 @@ map global insert <c-h> <backspace> -docstring backward-delete-char
 map global insert <a-tab> '<a-;>: execute-keys <lt>tab<gt><ret>' -docstring tab-insert
 map global insert <c-t> '<left><a-;>d<a-;>p<right><right>' -docstring transpose-chars
 map global insert <a-t> '<a-;><a-w><a-;><a-b><a-;><a-b><a-;>d<a-;><a-e><right><a-;>p<a-;><a-w>' -docstring transpose-words
-map global insert <a-u> '<a-;>e<a-;>~<right>' -docstring upcase-word
-map global insert <a-l> '<a-;>e<a-;>`<right>' -docstring downcase-word
-map global insert <a-c> '<left><a-;>/[a-zA-Z0-9]<ret><a-;>~<left><a-;>e<right>' -docstring capitalize-word
+map global insert <a-u> '<a-;>W<a-;>~<right>' -docstring upcase-word
+map global insert <a-l> '<a-;>W<a-;>`<right>' -docstring downcase-word
+map global insert <a-c> '<a-;>;<a-;>~<right><a-;>W<a-;>`<right>' -docstring capitalize-word
 map global insert <c-k> '<a-;>;<a-;>Gl<a-;>"_d' -docstring kill-line
 map global insert <c-u> '<a-;>;<a-;>h<a-;>Gh<a-;>"_d' -docstring unix-line-discard
 map global insert <a-d> '<a-;>;<a-;>E<a-;>"_d' -docstring kill-word
