@@ -20,6 +20,6 @@ map global insert <a-backspace> '<left><a-;>B<a-;>"_d' -docstring backward-kill-
 map global insert <a-c-h> '<left><a-;>B<a-;>"_d' -docstring backward-kill-word
 map global insert <c-w> '<left><a-;><a-B><a-;>"_d' -docstring unix-word-rubout
 map global insert <a-\> '<a-;>: try %{execute-keys -draft "bews |\t<lt>ret<gt>"_d"}<ret>' -docstring delete-horizontal-space
-map global insert <c-y> '<a-;>;<a-;>P' -docstring yank
+map global insert <c-y> '<c-r>"' -docstring yank
 map global prompt <c-g> <esc> -docstring abort
 map global insert <a-#> '<a-;>: comment-line<ret><down>' -docstring insert-comment
