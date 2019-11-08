@@ -24,3 +24,4 @@ map global insert <c-y> '<c-r>"' -docstring yank
 map global prompt <c-y> '<c-r>"' -docstring yank
 map global prompt <c-g> <esc> -docstring abort
 map global insert <a-#> '<a-;>: comment-line<ret><down>' -docstring insert-comment
+map global insert <a-ret> <esc> -docstring vi-editing-mode
