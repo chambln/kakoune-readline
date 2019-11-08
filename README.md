@@ -1,12 +1,18 @@
 # Readline-style mappings for Kakoune
 
-This plugin implements about 24 line-editing shortcuts in
+This plugin implements many line-editing shortcuts in
 [Kakoune](https://kakoune.org), emulating
 [Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) as
 closely as possible. See the readline(1) man page for explanations of
 what they do.
 
 ## Installation
+
+### Using `plug.kak`
+
+    plug "chambln/kakoune-readline"
+
+### Manual
 
 Put a copy of or link to `readline.kak` anywhere within your
 `~/.config/kak/autoload/` directory.
