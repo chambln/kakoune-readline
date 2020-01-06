@@ -2,7 +2,7 @@
 
 This plugin implements many line-editing shortcuts in
 [Kakoune](https://kakoune.org), emulating
-[Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) as
+[Readline](http://www.gnu.org/software/readline/) as
 closely as possible. See the readline(1) man page for explanations of
 what they do.
 
