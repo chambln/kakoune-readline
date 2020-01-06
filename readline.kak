@@ -1,7 +1,7 @@
 # See LICENSE file for copyright and license details.
 
 define-command -hidden readline-forward-word %{
-    execute-keys '<a-;>/[a-zA-Z0-9]+<ret><right>'
+    execute-keys '<a-;><a-/>.<ret><a-;>/[a-zA-Z0-9]+<ret><right>'
 }
 
 define-command -hidden readline-backward-word %{
