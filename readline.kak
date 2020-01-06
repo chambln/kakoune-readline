@@ -35,6 +35,20 @@ define-command -hidden readline-transpose-chars %{
     }
 }
 
+define-command -hidden readline-transpose-words %{
+    # Expects to be called from insert mode.
+    try %{
+        readline-forward-word
+        execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
+        execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
+        execute-keys '<a-;>s[A-Za-z0-9]+<ret>'
+        execute-keys '<a-;><a-)>'
+        execute-keys '<a-;>)'
+        execute-keys '<a-;><space>'
+        execute-keys '<a-;><a-:><right>'
+    }
+}
+
 map global insert <c-a> <home> -docstring beginning-of-line
 map global insert <c-e> <end> -docstring end-of-line
 map global insert <c-f> <right> -docstring forward-char
@@ -47,7 +61,7 @@ map global insert <c-h> <backspace> -docstring backward-delete-char
 map global insert <c-q> <c-v> -docstring quoted-insert
 map global insert <a-tab> '<a-;>: execute-keys <lt>tab<gt><ret>' -docstring tab-insert
 map global insert <c-t> '<a-;>: readline-transpose-chars<ret>' -docstring transpose-chars
-map global insert <a-t> '<a-;><a-w><a-;><a-b><a-;><a-b><a-;>d<a-;><a-e><right><a-;>p<a-;><a-w>' -docstring transpose-words
+map global insert <a-t> '<a-;>: readline-transpose-words<ret>' -docstring transpose-words
 map global insert <a-u> '<a-;>;<a-;>W<a-;>~<right>' -docstring upcase-word
 map global insert <a-l> '<a-;>;<a-;>W<a-;>`<right>' -docstring downcase-word
 map global insert <a-c> '<a-;>;<a-;>~<right><a-;>W<a-;>`<right>' -docstring capitalize-word
