@@ -1,18 +1,21 @@
 # See LICENSE file for copyright and license details.
 
 define-command -hidden readline-forward-word %{
+    # Expects to be called from insert mode.
     try %{
         execute-keys '<a-;><a-/>.<ret><a-;>/[a-zA-Z0-9]+<ret><right>'
     }
 }
 
 define-command -hidden readline-backward-word %{
+    # Expects to be called from insert mode.
     try %{
         execute-keys '<a-;><a-/>[A-Za-z0-9]+<ret><a-:><a-;><a-;><a-;>;'
     }
 }
 
 define-command -hidden readline-unix-word-rubout %{
+    # Expects to be called from insert mode.
     try %{
         execute-keys '<a-;><a-/>\S+\s*<ret><a-;>d'
     }
