@@ -1,11 +1,11 @@
 # See LICENSE file for copyright and license details.
 
 define-command -hidden readline-forward-word %{
-    execute-keys '<left><a-;>/[a-zA-Z0-9]<ret><left><a-;>e<right>'
+    execute-keys '<a-;>/[a-zA-Z0-9]+<ret><right>'
 }
 
 define-command -hidden readline-backward-word %{
-    execute-keys '<a-;><a-/>[a-zA-Z0-9]<ret><a-;>b<a-;>;'
+    execute-keys '<a-;><a-/>[A-Za-z0-9]+<ret><a-:><a-;><a-;><a-;>;'
 }
 
 map global insert <c-a> <home> -docstring beginning-of-line
