@@ -8,6 +8,10 @@ define-command -hidden readline-backward-word %{
     execute-keys '<a-;><a-/>[A-Za-z0-9]+<ret><a-:><a-;><a-;><a-;>;'
 }
 
+define-command -hidden readline-unix-word-rubout %{
+    execute-keys '<a-;><a-/>\S+\s*<ret><a-;>d'
+}
+
 map global insert <c-a> <home> -docstring beginning-of-line
 map global insert <c-e> <end> -docstring end-of-line
 map global insert <c-f> <right> -docstring forward-char
@@ -28,7 +32,7 @@ map global insert <c-u> '<a-;>;<a-;>h<a-;>Gh<a-;>"_d' -docstring unix-line-disca
 map global insert <a-d> '<a-;>;<a-;>E<a-;>"_d' -docstring kill-word
 map global insert <a-backspace> '<left><a-;>B<a-;>"_d' -docstring backward-kill-word
 map global insert <a-c-h> '<left><a-;>B<a-;>"_d' -docstring backward-kill-word
-map global insert <c-w> '<left><a-;><a-B><a-;>"_d' -docstring unix-word-rubout
+map global insert <c-w> '<a-;>: readline-unix-word-rubout<ret>' -docstring unix-word-rubout
 map global insert <a-\> '<esc><a-a><space>c' -docstring delete-horizontal-space
 map global insert <c-y> '<c-r>"' -docstring yank
 map global prompt <c-y> '<c-r>"' -docstring yank
