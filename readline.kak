@@ -25,11 +25,11 @@ define-command -hidden readline-transpose-chars %{
     # Expects to be called from insert mode.
     execute-keys '<a-;>;'
     try %{
-        execute-keys -draft '<a-;>s$<ret>'               # Fail unless cursor is at line end.
-        execute-keys '<left><left><a-;>d<a-;>p<end>'     # Transpose characters at line end.
+        execute-keys '<a-;>s$<ret>'                   # Fail unless cursor is at line end.
+        execute-keys '<left><left><a-;>d<a-;>p<end>'  # Transpose characters at line end.
     } catch %{
-        execute-keys -draft '<a-;>s^.<ret>'              # Fail unless cursor is at line start.
-        execute-keys '<a-;>d<left><a-;>P<right>'         # Move character to end of line above.
+        execute-keys '<a-;>s^.<ret>'                  # Fail unless cursor is at line start.
+        execute-keys '<a-;>d<left><a-;>P<right>'      # Move character to end of line above.
     } catch %{
         execute-keys '<left><a-;>d<a-;>p<right><right>'  # Transpose characters.
     }
@@ -38,6 +38,11 @@ define-command -hidden readline-transpose-chars %{
 define-command -hidden readline-transpose-words %{
     # Expects to be called from insert mode.
     try %{
+        execute-keys '<a-;>s$<ret>'  # Fail unless cursor is at line end.
+        execute-keys '<end>'
+        readline-backward-word
+        readline-transpose-words
+    } catch %{
         readline-forward-word
         execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
         execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
@@ -46,7 +51,7 @@ define-command -hidden readline-transpose-words %{
         execute-keys '<a-;>)'
         execute-keys '<a-;><space>'
         execute-keys '<a-;><a-:><right>'
-    }
+    } catch nop
 }
 
 map global insert <c-a> <home> -docstring beginning-of-line
