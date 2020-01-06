@@ -13,7 +13,9 @@ define-command -hidden readline-backward-word %{
 }
 
 define-command -hidden readline-unix-word-rubout %{
-    execute-keys '<a-;><a-/>\S+\s*<ret><a-;>d'
+    try %{
+        execute-keys '<a-;><a-/>\S+\s*<ret><a-;>d'
+    }
 }
 
 map global insert <c-a> <home> -docstring beginning-of-line
