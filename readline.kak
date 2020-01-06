@@ -1,10 +1,19 @@
 # See LICENSE file for copyright and license details.
+
+define-command -hidden readline-forward-word %{
+    execute-keys '<left><a-;>/[a-zA-Z0-9]<ret><left><a-;>e<right>'
+}
+
+define-command -hidden readline-backward-word %{
+    execute-keys '<a-;><a-/>[a-zA-Z0-9]<ret><a-;>b<a-;>;'
+}
+
 map global insert <c-a> <home> -docstring beginning-of-line
 map global insert <c-e> <end> -docstring end-of-line
 map global insert <c-f> <right> -docstring forward-char
 map global insert <c-b> <left> -docstring backward-char
-map global insert <a-f> '<left><a-;>/[a-zA-Z0-9]<ret><left><a-;>e<right>' -docstring forward-word
-map global insert <a-b> '<a-;><a-/>[a-zA-Z0-9]<ret><a-;>b<a-;>;' -docstring backward-word
+map global insert <a-f> '<a-;>: readline-forward-word<ret>' -docstring forward-word
+map global insert <a-b> '<a-;>: readline-backward-word<ret>' -docstring backward-word
 map global insert <c-d> <del> -docstring delete-char
 map global insert <c-h> <backspace> -docstring backward-delete-char
 map global insert <a-tab> '<a-;>: execute-keys <lt>tab<gt><ret>' -docstring tab-insert
