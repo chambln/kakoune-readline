@@ -44,13 +44,7 @@ define-command -hidden readline-transpose-words %{
         readline-transpose-words
     } catch %{
         readline-forward-word
-        execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
-        execute-keys '<a-;><a-?>[^A-Za-z0-9]+<ret>'
-        execute-keys '<a-;>s[A-Za-z0-9]+<ret>'
-        execute-keys '<a-;><a-)>'
-        execute-keys '<a-;>)'
-        execute-keys '<a-;><space>'
-        execute-keys '<a-;><a-:><right>'
+        execute-keys -itersel '<a-;><a-?>[^A-Za-z0-9]+<ret><a-;><a-?><ret><a-;>s[A-Za-z0-9]+<ret><a-;><a-)><a-;>)<a-;><space><a-;><a-:><right>'
     } catch nop
 }
 
