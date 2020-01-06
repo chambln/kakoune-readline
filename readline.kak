@@ -18,6 +18,20 @@ define-command -hidden readline-unix-word-rubout %{
     }
 }
 
+define-command -hidden readline-transpose-chars %{
+    # Expects to be called from insert mode.
+    execute-keys '<a-;>;'
+    try %{
+        execute-keys -draft '<a-;>s$<ret>'               # Fail unless cursor is at line end.
+        execute-keys '<left><left><a-;>d<a-;>p<end>'     # Transpose characters at line end.
+    } catch %{
+        execute-keys -draft '<a-;>s^.<ret>'              # Fail unless cursor is at line start.
+        execute-keys '<a-;>d<left><a-;>P<right>'         # Move character to end of line above.
+    } catch %{
+        execute-keys '<left><a-;>d<a-;>p<right><right>'  # Transpose characters.
+    }
+}
+
 map global insert <c-a> <home> -docstring beginning-of-line
 map global insert <c-e> <end> -docstring end-of-line
 map global insert <c-f> <right> -docstring forward-char
@@ -29,7 +43,7 @@ map global insert <c-d> <del> -docstring delete-char
 map global insert <c-h> <backspace> -docstring backward-delete-char
 map global insert <c-q> <c-v> -docstring quoted-insert
 map global insert <a-tab> '<a-;>: execute-keys <lt>tab<gt><ret>' -docstring tab-insert
-map global insert <c-t> '<left><a-;>d<a-;>p<right><right>' -docstring transpose-chars
+map global insert <c-t> '<a-;>: readline-transpose-chars<ret>' -docstring transpose-chars
 map global insert <a-t> '<a-;><a-w><a-;><a-b><a-;><a-b><a-;>d<a-;><a-e><right><a-;>p<a-;><a-w>' -docstring transpose-words
 map global insert <a-u> '<a-;>;<a-;>W<a-;>~<right>' -docstring upcase-word
 map global insert <a-l> '<a-;>;<a-;>W<a-;>`<right>' -docstring downcase-word
