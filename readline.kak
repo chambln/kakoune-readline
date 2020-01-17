@@ -37,15 +37,8 @@ define-command -hidden readline-transpose-chars %{
 
 define-command -hidden readline-transpose-words %{
     # Expects to be called from insert mode.
-    try %{
-        execute-keys '<a-;>s$<ret>'  # Fail unless cursor is at line end.
-        execute-keys '<end>'
-        readline-backward-word
-        readline-transpose-words
-    } catch %{
-        readline-forward-word
-        execute-keys -itersel '<a-;><a-?>[^A-Za-z0-9]+<ret><a-;><a-?><ret><a-;>s[A-Za-z0-9]+<ret><a-;><a-)><a-;>)<a-;><space><a-;><a-:><right>'
-    } catch nop
+    readline-forward-word
+    execute-keys -itersel '<a-;><a-?>[^A-Za-z0-9]+<ret><a-;><a-?><ret><a-;>s[A-Za-z0-9]+<ret><a-;><a-)><a-;>)<a-;><space><a-;><a-:><right>'
 }
 
 map global insert <c-a> <home> -docstring beginning-of-line
