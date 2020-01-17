@@ -19,6 +19,7 @@ plug chambln/kakoune-readline config %{
     map global insert <s-tab> <c-p>
     map global insert <c-p> <up>
     map global insert <c-n> <down>
+    hook global WinCreate .* readline-enable
 }
 ```
 
@@ -29,6 +30,29 @@ you’d rather not use tab for completion.
 
 Put a copy of or link to `readline.kak` anywhere within your
 `~/.config/kak/autoload/` directory.
+
+### Usage
+
+Manually enable Readline mappings in the current window:
+
+    :readline-enable<ret>
+
+Enable Readline mappings for the `sh` filetype:
+
+``` kak
+# ~/.config/kak/kakrc
+hook global WinSetOption filetype=sh %{
+    readline-enable
+    hook window WinSetOption filetype=.* readline-disable
+}
+```
+
+Always use Readline mappings:
+
+``` kak
+# ~/.config/kak/kakrc
+hook global WinCreate .* readline-enable
+```
 
 ## To-do
 
