@@ -71,7 +71,6 @@ provide-module readline %{
         map window prompt <c-y> '<c-r>"' -docstring yank
         map window prompt <c-g> <esc> -docstring abort
         map window insert <a-#> '<a-;>: comment-line<ret><down>' -docstring insert-comment
-        map window normal <c-e> 'i' -docstring emacs-editing-mode
         map window insert <a-ret> <esc> -docstring vi-editing-mode
     }
 
@@ -103,7 +102,6 @@ provide-module readline %{
         unmap window prompt <c-y> '<c-r>"'
         unmap window prompt <c-g> <esc>
         unmap window insert <a-#> '<a-;>: comment-line<ret><down>'
-        unmap window normal <c-e> 'i'
         unmap window insert <a-ret> <esc>
     }
 
